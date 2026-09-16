@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trip Tracker — Wishlist</title>
+<link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">✈️ Trip Tracker</div>
+  <nav class="tabs">
+    <a href="/index.html">Dashboard</a>
+    <a href="/calendar.html">Calendar</a>
+    <a href="/wishlist.html" class="active">Wishlist</a>
+  </nav>
+  <span class="usage-pill" id="usagePill">Loading usage…</span>
+</header>
+
+<main>
+  <div class="page-header">
+    <div>
+      <h1>Wishlist</h1>
+      <p>Places you love — we'll flag it if a genuinely great fare shows up, no fixed dates needed.</p>
+    </div>
+    <button class="btn-primary" id="addWishBtn">+ Add Destination</button>
+  </div>
+
+  <div class="grid" id="wishGrid"></div>
+  <div class="empty-state hidden" id="emptyState">No wishlist destinations yet — add somewhere you'd love to go.</div>
+</main>
+
+<div class="modal-overlay hidden" id="modalOverlay">
+  <div class="modal">
+    <h2 id="modalTitle">Add Destination</h2>
+    <form id="wishForm">
+      <input type="hidden" id="wishId" />
+      <div class="field-row">
+        <div class="field">
+          <label>From (your airport code)</label>
+          <input type="text" id="origin" placeholder="e.g. JFK" maxlength="4" required />
+        </div>
+        <div class="field">
+          <label>Destination airport code</label>
+          <input type="text" id="destination" placeholder="e.g. LIS" maxlength="4" required />
+        </div>
+      </div>
+      <div class="field">
+        <label>Destination name</label>
+        <input type="text" id="destinationName" placeholder="e.g. Lisbon, Portugal" />
+      </div>
+      <div class="field">
+        <label>Notes</label>
+        <textarea id="note" rows="2" placeholder="Why you love it, best season, etc."></textarea>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Alert me below this price ($)</label>
+          <input type="number" id="targetPrice" min="0" step="1" placeholder="optional" />
+        </div>
+        <div class="field">
+          <label>Trip length (nights)</label>
+          <input type="number" id="stayNights" min="1" value="7" />
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" id="cancelBtn">Cancel</button>
+        <button type="submit" class="btn-primary">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="/js/api.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/wishlist.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "trip-tracker",
+  "version": "1.0.0",
+  "description": "Local flight price tracking dashboard - trips, calendar, wishlist",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,358 @@
+:root {
+  --bg: #f5f6fa;
+  --surface: #ffffff;
+  --border: #e2e5ec;
+  --text: #1c1f2a;
+  --text-muted: #6b7280;
+  --accent: #2f5bff;
+  --accent-soft: #eaf0ff;
+
+  --buy-soon: #d64545;
+  --buy-soon-bg: #fdeaea;
+  --can-wait: #1f9d55;
+  --can-wait-bg: #e8f8ee;
+  --watch: #c98a15;
+  --watch-bg: #fdf3df;
+  --booked: #4b5563;
+  --booked-bg: #eceef1;
+  --watching: #6b7280;
+  --watching-bg: #f0f1f3;
+  --deal: #9333ea;
+  --deal-bg: #f5e9ff;
+
+  --radius: 10px;
+  --shadow: 0 1px 3px rgba(16, 24, 40, 0.08), 0 1px 2px rgba(16, 24, 40, 0.06);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a { color: var(--accent); }
+
+header.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header.topbar .brand {
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+nav.tabs {
+  display: flex;
+  gap: 4px;
+}
+
+nav.tabs a {
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+nav.tabs a.active,
+nav.tabs a:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.usage-pill {
+  font-size: 12px;
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+.usage-pill.low { color: var(--buy-soon); border-color: var(--buy-soon); }
+
+main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.page-header h1 { font-size: 22px; margin: 0; }
+.page-header p { color: var(--text-muted); margin: 4px 0 0; font-size: 14px; }
+
+button, .btn {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: #2447d6; }
+
+.btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { background: var(--bg); }
+
+.btn-ghost { background: transparent; color: var(--text-muted); padding: 6px 8px; }
+.btn-ghost:hover { color: var(--text); }
+
+.btn-danger { background: transparent; color: var(--buy-soon); padding: 6px 8px; }
+
+.filter-bar {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.filter-chip {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.filter-chip.active { background: var(--text); color: #fff; border-color: var(--text); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.card-title { font-weight: 700; font-size: 16px; }
+.card-route { color: var(--text-muted); font-size: 13px; margin-top: 2px; }
+
+.badge {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.badge.buy-soon { color: var(--buy-soon); background: var(--buy-soon-bg); }
+.badge.can-wait { color: var(--can-wait); background: var(--can-wait-bg); }
+.badge.watch { color: var(--watch); background: var(--watch-bg); }
+.badge.booked { color: var(--booked); background: var(--booked-bg); }
+.badge.watching { color: var(--watching); background: var(--watching-bg); }
+.badge.deal { color: var(--deal); background: var(--deal-bg); }
+
+.card-price {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.card-price small {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.card-price-context {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: -6px;
+}
+
+.card-reason {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.card-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.card-actions .btn { flex: 1; text-align: center; font-size: 13px; padding: 8px; }
+
+.error-note {
+  font-size: 12px;
+  color: var(--buy-soon);
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 60px 20px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 22, 30, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.modal {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal h2 { margin: 0 0 16px; font-size: 18px; }
+
+.field { margin-bottom: 14px; }
+.field label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 5px; }
+.field .hint { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+.field input, .field select, .field textarea {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font: inherit;
+}
+
+.field-row { display: flex; gap: 10px; }
+.field-row .field { flex: 1; }
+
+.field-checkbox { display: flex; align-items: center; gap: 8px; }
+.field-checkbox input { width: auto; }
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.hidden { display: none !important; }
+
+/* Calendar */
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.cal-dow {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+  padding-bottom: 6px;
+}
+
+.cal-cell {
+  min-height: 90px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px;
+  font-size: 12px;
+}
+
+.cal-cell.outside { background: transparent; border-color: transparent; }
+.cal-daynum { font-weight: 700; margin-bottom: 4px; color: var(--text-muted); }
+
+.cal-event {
+  border-radius: 5px;
+  padding: 2px 5px;
+  margin-bottom: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.cal-event.depart { background: var(--accent-soft); color: var(--accent); }
+.cal-event.return { background: var(--watching-bg); color: var(--watching); }
+.cal-event.needs-booking { background: var(--buy-soon-bg); color: var(--buy-soon); }
+
+.legend {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+
+@media (max-width: 640px) {
+  header.topbar { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .cal-cell { min-height: 60px; font-size: 10px; }
+}

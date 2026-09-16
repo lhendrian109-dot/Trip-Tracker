@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trip Tracker — Dashboard</title>
+<link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">✈️ Trip Tracker</div>
+  <nav class="tabs">
+    <a href="/index.html" class="active">Dashboard</a>
+    <a href="/calendar.html">Calendar</a>
+    <a href="/wishlist.html">Wishlist</a>
+  </nav>
+  <span class="usage-pill" id="usagePill">Loading usage…</span>
+</header>
+
+<main>
+  <div class="page-header">
+    <div>
+      <h1>Your Trips</h1>
+      <p>Live flight prices for everything you've got coming up this year.</p>
+    </div>
+    <button class="btn-primary" id="addTripBtn">+ Add Trip</button>
+  </div>
+
+  <div class="filter-bar" id="filterBar">
+    <button class="filter-chip active" data-filter="all">All</button>
+    <button class="filter-chip" data-filter="buy-soon">Buy Soon</button>
+    <button class="filter-chip" data-filter="watch">Watch Closely</button>
+    <button class="filter-chip" data-filter="can-wait">Can Wait</button>
+    <button class="filter-chip" data-filter="watching">Watching</button>
+    <button class="filter-chip" data-filter="booked">Booked</button>
+  </div>
+
+  <div class="grid" id="tripGrid"></div>
+  <div class="empty-state hidden" id="emptyState">No trips yet — add your first one to start tracking prices.</div>
+</main>
+
+<div class="modal-overlay hidden" id="modalOverlay">
+  <div class="modal">
+    <h2 id="modalTitle">Add Trip</h2>
+    <form id="tripForm">
+      <input type="hidden" id="tripId" />
+      <div class="field">
+        <label>Trip name</label>
+        <input type="text" id="tripName" placeholder="e.g. Tokyo in the spring" />
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Origin airport code</label>
+          <input type="text" id="origin" placeholder="e.g. JFK" maxlength="4" required />
+        </div>
+        <div class="field">
+          <label>Destination airport code</label>
+          <input type="text" id="destination" placeholder="e.g. NRT" maxlength="4" required />
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Depart date</label>
+          <input type="date" id="departDate" required />
+        </div>
+        <div class="field">
+          <label>Return date</label>
+          <input type="date" id="returnDate" />
+          <div class="hint">Leave blank for one-way</div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Adults</label>
+        <input type="number" id="adults" min="1" value="1" />
+      </div>
+      <div class="field field-checkbox">
+        <input type="checkbox" id="booked" />
+        <label for="booked" style="margin:0">I already booked this trip</label>
+      </div>
+      <div class="field" id="bookedPriceField">
+        <label>Price you paid</label>
+        <input type="number" id="bookedPrice" min="0" step="1" placeholder="e.g. 650" />
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" id="cancelBtn">Cancel</button>
+        <button type="submit" class="btn-primary">Save Trip</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="/js/api.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/dashboard.js"></script>
+</body>
+</html>

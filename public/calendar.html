@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trip Tracker — Calendar</title>
+<link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">✈️ Trip Tracker</div>
+  <nav class="tabs">
+    <a href="/index.html">Dashboard</a>
+    <a href="/calendar.html" class="active">Calendar</a>
+    <a href="/wishlist.html">Wishlist</a>
+  </nav>
+  <span class="usage-pill" id="usagePill">Loading usage…</span>
+</header>
+
+<main>
+  <div class="page-header">
+    <div>
+      <h1>Travel Calendar</h1>
+      <p>What's booked, what still needs booking, across the year.</p>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span><i style="background:var(--accent-soft)"></i> Departure (booked)</span>
+    <span><i style="background:var(--watching-bg)"></i> Return (booked)</span>
+    <span><i style="background:var(--buy-soon-bg)"></i> Needs booking</span>
+  </div>
+
+  <div class="cal-header">
+    <button class="btn-secondary" id="prevMonth">‹ Prev</button>
+    <h2 id="monthLabel" style="margin:0"></h2>
+    <button class="btn-secondary" id="nextMonth">Next ›</button>
+  </div>
+
+  <div class="cal-grid" id="calGrid"></div>
+</main>
+
+<script src="/js/api.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/calendar.js"></script>
+</body>
+</html>
