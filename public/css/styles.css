@@ -338,7 +338,6 @@ button, .btn {
 }
 
 .cal-event.depart { background: var(--accent-soft); color: var(--accent); }
-.cal-event.return { background: var(--watching-bg); color: var(--watching); }
 .cal-event.needs-booking { background: var(--buy-soon-bg); color: var(--buy-soon); }
 
 .legend {

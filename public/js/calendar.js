@@ -21,12 +21,26 @@ function eventsByDate() {
     if (!dateStr) return;
     (map[dateStr] ||= []).push(ev);
   };
+
   for (const t of trips) {
-    if (t.booked) {
-      add(t.departDate, { label: `✈ ${t.tripName}`, cls: 'depart', trip: t });
-      if (t.returnDate) add(t.returnDate, { label: `⟲ ${t.tripName}`, cls: 'return', trip: t });
+    const cls = t.booked ? 'depart' : 'needs-booking';
+    const start = new Date(t.departDate + 'T00:00:00');
+    const end = t.returnDate ? new Date(t.returnDate + 'T00:00:00') : null;
+
+    if (end && end > start) {
+      const cursor = new Date(start);
+      while (cursor <= end) {
+        const key = toKey(cursor);
+        const isStart = key === t.departDate;
+        const isEnd = key === t.returnDate;
+        let label = t.tripName;
+        if (isStart) label = (t.booked ? '✈ ' : 'Book: ') + t.tripName;
+        else if (isEnd && t.booked) label = `⟲ ${t.tripName}`;
+        add(key, { label, cls, trip: t });
+        cursor.setDate(cursor.getDate() + 1);
+      }
     } else {
-      add(t.departDate, { label: `Book: ${t.tripName}`, cls: 'needs-booking', trip: t });
+      add(t.departDate, { label: (t.booked ? '✈ ' : 'Book: ') + t.tripName, cls, trip: t });
     }
   }
   return map;
